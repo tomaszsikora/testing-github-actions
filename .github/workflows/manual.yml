@@ -28,5 +28,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: Always fail
-      run: exit 1
+  always-fail:
+    runs-on: ubuntu-latest
+    steps:
+    - name: fail-it
+      run: |
+        echo "It will always fail";
+        exit 1 
